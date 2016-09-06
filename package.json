@@ -1,10 +1,10 @@
 {
   "name": "randomized-interval",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "setInterval with randomized interval time",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/multi-tape test/test-*.js"
+    "test": "multi-tape test/test-*.js"
   },
   "keywords": [
     "setInterval"
@@ -14,5 +14,17 @@
   "devDependencies": {
     "multi-tape": "^1.1.1",
     "purple-tape": "^1.0.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattiash/randomized-interval.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mattiash/randomized-interval/issues"
+  },
+  "homepage": "https://github.com/mattiash/randomized-interval#readme"
 }
