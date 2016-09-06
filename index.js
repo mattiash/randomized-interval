@@ -4,12 +4,12 @@ function interval(T) {
     return T*(Math.random()+0.5)
 }
 
-function setRandomizedInterval(callback, T) {
+function setRandomizedInterval(callback, T, ...args) {
     let ref = true
     let currTimer
 
     let fn = () => {
-        callback()
+        callback(...args)
         currTimer = setTimeout(fn, interval(T))
         if(!ref) {
             currTimer.unref()

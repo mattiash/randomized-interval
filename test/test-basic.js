@@ -5,7 +5,7 @@ let setRandomizedInterval = require('../index.js')
 
 test('shall fire a reasonable number of times', function *(t) {
     let times = 0
-    let int = setRandomizedInterval( () => { times++ }, 1000)
+    let i1 = setRandomizedInterval( () => { times++ }, 1000)
 
     yield wait(5000)
 
@@ -14,10 +14,32 @@ test('shall fire a reasonable number of times', function *(t) {
 
     times = 0
 
-    int.clear()
+    i1.clear()
 
     yield wait(2000)
     t.equal(times, 0, 'shall stop when told to')
+})
+
+test('shall include extra arguments to callback', function *(t) {
+    let lastArg
+    let times = 0
+    let i1 = setRandomizedInterval( arg => { times++; lastArg = arg }, 1000, 'myarg')
+
+    while(times === 0) {
+        yield wait(100)
+    }
+
+    t.equal(lastArg, 'myarg', 'shall pass argument first time callback fires')
+
+    lastArg = undefined
+
+    while(times === 1) {
+        yield wait(100)
+    }
+
+    t.equal(lastArg, 'myarg', 'shall pass argument second time callback fires')
+
+    i1.clear()
 })
 
 test('unref()', function *(t) {
