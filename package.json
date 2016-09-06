@@ -1,0 +1,18 @@
+{
+  "name": "randomized-interval",
+  "version": "1.0.0",
+  "description": "setInterval with randomized interval time",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/multi-tape test/test-*.js"
+  },
+  "keywords": [
+    "setInterval"
+  ],
+  "author": "Mattias Holmlund <mattias@holmlund.se>",
+  "license": "ISC",
+  "devDependencies": {
+    "multi-tape": "^1.1.1",
+    "purple-tape": "^1.0.0"
+  }
+}
