@@ -34,15 +34,4 @@ function setRandomizedInterval(callback, T, ...args) {
 
 }
 
-if(!module.parent) {
-    let prev = Date.now()
-
-    setRandomizedInterval(() => {
-        let now = Date.now()
-        console.log(now-prev) // eslint-disable-line
-        prev = now
-    }, 1000)
-
-}
-
 module.exports = setRandomizedInterval
