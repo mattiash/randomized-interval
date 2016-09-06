@@ -1,5 +1,7 @@
 # randomized-interval
 
+[![Build Status](https://travis-ci.org/mattiash/randomized-interval.svg?branch=master)](https://travis-ci.org/mattiash/randomized-interval) [![Coverage Status](https://coveralls.io/repos/github/mattiash/randomized-interval/badge.svg?branch=master)](https://coveralls.io/github/mattiash/randomized-interval?branch=master)
+
 This module provides the same API as setInterval, but with a randomized
 interval. If you specify the interval as X, the actual interval will be
 X*(Math.random() + 0.5), i.e. between 0.5 and 1.5 times X. The interval time is
