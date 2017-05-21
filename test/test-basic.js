@@ -5,12 +5,15 @@ let setRandomizedInterval = require('../index.js')
 
 test('shall fire a reasonable number of times', function *(t) {
     let times = 0
-    let i1 = setRandomizedInterval( () => { times++ }, 1000)
+    let interval = 200
+    let time = 5000
 
-    yield wait(5000)
+    let i1 = setRandomizedInterval( () => { times++ }, interval)
 
-    t.ok(times<5000/(1000*0.5), 'shall not fire too many times')
-    t.ok(times>5000/(1000*1.5), 'shall not fire too few times')
+    yield wait(time)
+
+    t.ok(times<time/(interval*0.5), 'shall not fire too many times')
+    t.ok(times>time/(interval*1.5), 'shall not fire too few times')
 
     times = 0
 
