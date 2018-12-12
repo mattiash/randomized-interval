@@ -1,37 +1,39 @@
 {
-  "name": "randomized-interval",
-  "version": "1.0.3",
-  "description": "setInterval with randomized interval time",
-  "main": "index.js",
-  "scripts": {
-    "test": "./node_modules/.bin/tape test/test-*.js",
-    "test-travis": "./node_modules/.bin/istanbul cover ./node_modules/.bin/tape -- test/test-*.js",
-    "lint": "./node_modules/.bin/eslint **.js",
-    "pretest": "npm run lint",
-    "prepublish": "npm run test"
-  },
-  "keywords": [
-    "setInterval"
-  ],
-  "author": "Mattias Holmlund <mattias@holmlund.se>",
-  "license": "ISC",
-  "devDependencies": {
-    "coveralls": "^2.11.6",
-    "eslint": "^3.4.0",
-    "istanbul": "^0.4.2",
-    "purple-tape": "^1.0.0",
-    "tape": "^4.6.0"
-  },
-  "directories": {
-    "test": "test"
-  },
-  "dependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mattiash/randomized-interval.git"
-  },
-  "bugs": {
-    "url": "https://github.com/mattiash/randomized-interval/issues"
-  },
-  "homepage": "https://github.com/mattiash/randomized-interval#readme"
+    "name": "randomized-interval",
+    "version": "1.0.3",
+    "description": "setInterval with randomized interval time",
+    "main": "index.js",
+    "scripts": {
+        "prepare": "tsc",
+        "test": "multi-tape test/test-*.js",
+        "test-travis": "tsc && nyc --reporter lcov multi-tape -o -p 4 test/test-*.js",
+        "prepublish": "npm run test"
+    },
+    "keywords": [
+        "setInterval"
+    ],
+    "author": "Mattias Holmlund <mattias@holmlund.se>",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^10.12.12",
+        "coveralls": "^3.0.2",
+        "multi-tape": "^1.2.1",
+        "nyc": "^13.1.0",
+        "prettier": "^1.15.3",
+        "purple-tape": "^1.0.3",
+        "source-map-support": "^0.5.9",
+        "typescript": "^3.2.2"
+    },
+    "directories": {
+        "test": "test"
+    },
+    "dependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mattiash/randomized-interval.git"
+    },
+    "bugs": {
+        "url": "https://github.com/mattiash/randomized-interval/issues"
+    },
+    "homepage": "https://github.com/mattiash/randomized-interval#readme"
 }
