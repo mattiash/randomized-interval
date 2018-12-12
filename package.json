@@ -4,8 +4,8 @@
     "description": "setInterval with randomized interval time",
     "main": "index.js",
     "scripts": {
-        "prepare": "tsc",
-        "test": "multi-tape test/test-*.js",
+        "tsc": "tsc",
+        "test": "tsc && multi-tape test/test-*.js",
         "test-travis": "tsc && nyc --reporter lcov multi-tape -o -p 4 test/test-*.js",
         "prepublish": "npm run test"
     },
