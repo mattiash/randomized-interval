@@ -13,9 +13,11 @@ distributed systems.
 
 ## Usage
 
-    const setRandomizedInterval = require('randomized-interval')
+### setRandomizedInterval
 
-    setRandomizedInterval( () => { console.log(Date.now())}, 10000)
+    const {setRandomizedInterval} = require('randomized-interval')
+
+    setRandomizedInterval( () => console.log(Date.now()), 10000)
 
 setRandomizedInterval also accepts extra arguments that are passed to the
 callback in the same way as setInterval.
@@ -24,6 +26,20 @@ setRandomizedInterval returns an object that has the following methods:
 
 - ref() and unref() works as for setInterval()
 - clear() stops the timer and makes sure that it never fires again.
+
+### setRandomizedIntervalAsync
+
+    const {setRandomizedIntervalAsync} = require('randomized-interval')
+
+    setRandomizedIntervalAsync( () => Promise.resolve(), 10000)
+
+setRandomizedIntervalAsync has the same behavior as setRandomizedInterval,
+but it expects the callback to return a Promise.
+The function will wait for that promise to resolve before it starts the next timer.
+This guarantees that only one callback-operation will be run at a time
+even if the callback takes longer than the interval to complete.
+This also means that the time between callback operations will be
+the random interval plus the time it takes for the callback to resolve its promise.
 
 # License
 

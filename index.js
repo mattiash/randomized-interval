@@ -5,15 +5,23 @@ function interval(T) {
 }
 
 function setRandomizedInterval(callback, T, ...args) {
+    return setRandomizedIntervalAsync( () => {
+        callback(...args)
+        return Promise.resolve()
+    }, T)
+}
+
+function setRandomizedIntervalAsync(callback, T, ...args) {
     let ref = true
     let currTimer
 
     let fn = () => {
-        callback(...args)
-        currTimer = setTimeout(fn, interval(T))
-        if(!ref) {
-            currTimer.unref()
-        }
+        callback(...args).then( () => {
+            currTimer = setTimeout(fn, interval(T))
+            if(!ref) {
+                currTimer.unref()
+            }    
+        })
     }
 
     currTimer = setTimeout(fn, interval(T))
@@ -34,4 +42,4 @@ function setRandomizedInterval(callback, T, ...args) {
 
 }
 
-module.exports = setRandomizedInterval
+module.exports = { setRandomizedInterval, setRandomizedIntervalAsync}

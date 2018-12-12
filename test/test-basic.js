@@ -1,7 +1,7 @@
 'use strict'
 
 let test = require('purple-tape')
-let setRandomizedInterval = require('../index.js')
+let {setRandomizedInterval} = require('../index.js')
 
 test('shall fire a reasonable number of times', function *(t) {
     let times = 0
