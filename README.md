@@ -4,9 +4,9 @@
 
 This module provides the same API as setInterval, but with a randomized
 interval. If you specify the interval as X, the actual interval will be
-X*(Math.random() + 0.5), i.e. between 0.5 and 1.5 times X. The interval time is
+X\*(Math.random() + 0.5), i.e. between 0.5 and 1.5 times X. The interval time is
 recalculated for each interval, which means that over a long period of time, the
-average time between two times that the callback is called  will be X.
+average time between two times that the callback is called will be X.
 
 Using a randomized interval is useful to avoid synchronization effects in
 distributed systems.
@@ -24,8 +24,8 @@ callback in the same way as setInterval.
 
 setRandomizedInterval returns an object that has the following methods:
 
-- ref() and unref() works as for setInterval()
-- clear() stops the timer and makes sure that it never fires again.
+-   ref() and unref() works as for setInterval()
+-   clear() stops the timer and makes sure that it never fires again.
 
 ### setRandomizedIntervalAsync
 
@@ -45,7 +45,7 @@ the random interval plus the time it takes for the callback to resolve its promi
 
 ISC License
 
-Copyright (c) 2016, Mattias Holmlund, <mattias@holmlund.se>
+Copyright (c) 2018, Mattias Holmlund, <mattias@holmlund.se>
 
 Permission to use, copy, modify, and/or distribute this software for any purpose
 with or without fee is hereby granted, provided that the above copyright notice
