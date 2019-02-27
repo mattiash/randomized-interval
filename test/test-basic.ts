@@ -64,6 +64,14 @@ test('unref()', function*(t) {
     t.pass('if the test exits, the unref() was successful')
 })
 
+test('setRandomizedInterval clear()', function(t) {
+    let t1 = setRandomizedInterval(() => {
+        t1.clear()
+    }, 100)
+
+    t.pass('if the test exits, the clear() was successful')
+})
+
 function wait(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms))
 }
