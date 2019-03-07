@@ -20,9 +20,13 @@ export function setRandomizedIntervalAsync(
 ) {
     let ref = true
     let currTimer: NodeJS.Timeout
+    let clear = false
 
     let fn = () => {
         callback(...args).then(() => {
+            if (clear) {
+                return
+            }
             currTimer = setTimeout(fn, interval(ms))
             if (!ref) {
                 currTimer.unref()
@@ -34,6 +38,7 @@ export function setRandomizedIntervalAsync(
 
     return {
         clear: () => {
+            clear = true
             clearTimeout(currTimer)
         },
         unref: () => {
