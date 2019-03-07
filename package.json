@@ -1,6 +1,6 @@
 {
     "name": "randomized-interval",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "setInterval with randomized interval time",
     "main": "index.js",
     "scripts": {
